@@ -57,7 +57,7 @@ class Product {
     }
 }
 
-let peanut = new Product(6, "Peanuts", 14.05, "/assets/car.jpg");
+let peanut = new Product(6, "Peanuts", 14.05, "/assets/products/Peanuts.jpeg");
 peanut.prevPrice = 16.99;
 peanut.setRating(2);
 
@@ -69,10 +69,10 @@ let products = [
     new Product(2, "Stroller", 250, "/assets/products/stroller.jpg"),
     new Product(3, "Table Cover", 2.90, "/assets/products/table_cover.jpg"),
     new Product(4, "Set of Lamps", 11.95, "/assets/products/set_of_lamps.jpg"),
-    new Product(5, "Umbrella", 8.95, null),
+    new Product(5, "Umbrella", 8.95,"/assets/products/umbrella__58450.jpeg"),
     peanut,
-    new Product(7, "Deodorant", 6.99, null),
-    new Product(8, "Mechanical Drill", 122.75, null)
+    new Product(7, "Deodorant", 6.99, "/assets/products/Deodorant.jpeg"),
+    new Product(8, "Mechanical Drill", 122.75,"/assets/products/Mechanical.jpeg"),
 ];
 
 //load these in the storage.
@@ -128,6 +128,8 @@ const loadProducts = () => {
 </div>`
     });
     document.getElementById("content_holder").innerHTML = product_cards;
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+
 }
 
 loadProducts();
