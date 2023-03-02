@@ -128,6 +128,7 @@ const loadProducts = () => {
 </div>`
     });
     document.getElementById("content_holder").innerHTML = product_cards;
+   
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
 }

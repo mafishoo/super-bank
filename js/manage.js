@@ -32,4 +32,6 @@ const loadForEdit = () => {
   </table>`
 }
 
+document.getElementById("year").innerHTML = new Date().getFullYear();
+
 loadForEdit();
