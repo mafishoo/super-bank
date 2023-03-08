@@ -19,7 +19,6 @@ class Product {
         this.previousPrice = null;
         this.rating = 0;
     }
-
     get price() {
         return this.productPrice;
     }
@@ -128,7 +127,7 @@ const loadProducts = () => {
 </div>`
     });
     document.getElementById("content_holder").innerHTML = product_cards;
-   
+    const year = new Date();
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
 }
