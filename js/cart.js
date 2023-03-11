@@ -1,4 +1,7 @@
 let logged_member = JSON.parse(localStorage.getItem('logged_member'));
+
+let total = localStorage.getItem("total")
+document.querySelector('.cart-counter').innerHTML = total;
 if (logged_member) {
 let cart = JSON.parse(localStorage.getItem('cart'));
 console.log(cart);
@@ -14,8 +17,22 @@ cart.forEach(item => {
 </svg></a></td>
                 </tr>`;
 });
+    cart_content+= `<tr>
+    <td>grand total</td>
+    <td id="total">${total} </td>
+
+</tr>`
 document.querySelector('tbody').innerHTML = cart_content;
 } else {
 //the member is not logged in redirect to registration
 window.location.replace('/customer.html');
+}
+
+//Q10 from script.js to load frome the local storage and display 
+welcomeLoggedUser();
+function welcomeLoggedUser() {
+    let logged_member = JSON.parse(localStorage.getItem('logged_member'));
+    if (logged_member) {
+        document.getElementById('logged_member').innerHTML = `Welcome ${logged_member.name} `;
+    }
 }

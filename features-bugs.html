@@ -28,17 +28,18 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#!">All Products</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="popular.html">Popular Items</a></li>
                                 <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="features-bugs.html">Features/Bugs</a></li>
                     </ul>
                     <form class="d-flex">
+                        <div id="logged_member"></div>
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                           <a href="cart.html">Cart</a> 
+                            <span class="cart-counter badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                     </form>
                 </div>
@@ -104,9 +105,17 @@
         <!-- Core theme JS-->
         <script>
             {
+                let total = localStorage.getItem("total")
                 document.getElementById("year").innerHTML = new Date().getFullYear();
-
+                document.querySelector('.cart-counter').innerHTML = total;
+                
+                //Q10 from script.js to load frome the local storage and display 
+            let logged_member = JSON.parse(localStorage.getItem('logged_member'));
+            if (logged_member) {
+            document.getElementById('logged_member').innerHTML = `Welcome ${logged_member.name} `;
+                }
             }
+            
         </script>
     </body>
 </html>

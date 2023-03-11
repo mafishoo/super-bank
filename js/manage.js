@@ -49,5 +49,14 @@ const loadForEdit = () => {
 }
 
 document.getElementById("year").innerHTML = new Date().getFullYear();
-
+let total = localStorage.getItem("total")
+document.querySelector('.cart-counter').innerHTML = total;
 loadForEdit();
+//Q10 from script.js to load frome the local storage and display 
+welcomeLoggedUser();
+function welcomeLoggedUser() {
+    let logged_member = JSON.parse(localStorage.getItem('logged_member'));
+    if (logged_member) {
+        document.getElementById('logged_member').innerHTML = `Welcome ${logged_member.name} `;
+    }
+}
