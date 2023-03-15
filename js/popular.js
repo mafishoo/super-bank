@@ -81,6 +81,8 @@ localStorage.setItem("products", JSON.stringify(products));
 const loadProducts = () => {
     let product_cards = "";
     products.forEach( product => {
+        if(product.getRating()>= 4)
+        {
     product_cards += `<div class="col mb-5">
     <div class="card h-100">
         <!-- Sale badge-->
@@ -109,7 +111,7 @@ const loadProducts = () => {
                 </span>
                 ${product.price}
                 <div>
-                    Quantity: <select id="${product.id}"> // question 7
+                    Quantity: <select>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -125,7 +127,7 @@ const loadProducts = () => {
         </div>
     </div>
 </div>`
-   });
+   }});
     document.getElementById("content_holder").innerHTML = product_cards;
     const year = new Date();
     document.getElementById("year").innerHTML = new Date().getFullYear();
@@ -135,7 +137,6 @@ const loadProducts = () => {
 loadProducts();
 
 //add to cart handler
-let total = 0; // question 7
 document.addEventListener('click', function (event) {
     if (containsClass(event.target, 'add-cart')) {
         //get the id of the product
@@ -148,12 +149,13 @@ document.addEventListener('click', function (event) {
             document.querySelector('.cart-counter').innerHTML = total; // question 7
             console.log(cart);
             localStorage.setItem('cart', JSON.stringify(cart));
-            localStorage.setItem("total", total ) // we saved the total to local storage from here so it can be accessible on every page
+            localStorage.setItem("total", total )
         }
     }
 }, false);
- let total1 = localStorage.getItem("total")
-document.querySelector('.cart-counter').innerHTML = total1;
+
+let total = localStorage.getItem("total")
+document.querySelector('.cart-counter').innerHTML = total;
 
 function containsClass(element, className) {
     return element.className.split(' ').indexOf(className) > -1;
@@ -214,4 +216,5 @@ function welcomeLoggedUser() {
     if (logged_member) {
         document.getElementById('logged_member').innerHTML = `Welcome ${logged_member.name} `;
     }
+    
 }
