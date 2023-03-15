@@ -90,7 +90,7 @@
                 let logged = authenticateMember(member); //check if the member is found in storage
                 console.log('logged', logged);
                 if (logged) { //member found
-                    localStorage.setItem('logged_member', JSON.stringify(logged));
+                    localStorage.setItem('logged_member', JSON.stringify(logged)); 
                     window.location.replace('/index.html');//redirect
                 } else {
                     setMessage("Email/password incorrect", false);

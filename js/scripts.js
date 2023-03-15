@@ -60,7 +60,7 @@ let peanut = new Product(6, "Peanuts", 14.05, "/assets/products/Peanuts.jpeg",5)
 peanut.prevPrice = 16.99;
 peanut.setRating(2);
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart"))? JSON.parse(localStorage.getItem("cart")) : [];
 
 //products database.
 let products = [
@@ -127,7 +127,7 @@ const loadProducts = () => {
 </div>`
    });
     document.getElementById("content_holder").innerHTML = product_cards;
-    const year = new Date();
+  
     document.getElementById("year").innerHTML = new Date().getFullYear();
 
 }
@@ -135,20 +135,30 @@ const loadProducts = () => {
 loadProducts();
 
 //add to cart handler
-let total = 0; // question 7
+let total = JSON.parse(localStorage.getItem("total")); // question 7
+
 document.addEventListener('click', function (event) {
     if (containsClass(event.target, 'add-cart')) {
         //get the id of the product
-        let id = event.target.id.split('_')[1];
+        let id = event.target.id.split('_')[1]; // cart_1 
         let product = getProductById(id);
+        // we retrive the quantity from the drop down using the id
         let quantity = parseInt(document.getElementById(id).value); // question 7
-         total= total+quantity // question 7
-        if (product) {
-            cart.push({product: product, quantity: quantity}); // question 7
+         total = total + quantity // question 7/11 to calculte the total quanity of products 
+         
+        if (product) { 
+            console.log(localStorage.getItem("totalprice"))
+            totalPrice = localStorage.getItem("totalprice")!=NaN? JSON.parse(localStorage.getItem("totalprice")):0;
+            
+            // question 7 qunatity was always one, we changed it to the quantity we get on line 146
+            cart.push({product: product, quantity: quantity}); 
             document.querySelector('.cart-counter').innerHTML = total; // question 7
             console.log(cart);
             localStorage.setItem('cart', JSON.stringify(cart));
-            localStorage.setItem("total", total ) // we saved the total to local storage from here so it can be accessible on every page
+            
+            localStorage.setItem("total", total ) //question 7 we saved the total to local storage from here so it can be accessible on every page
+            
+            localStorage.setItem("totalprice", totalPrice)
         }
     }
 }, false);

@@ -4,7 +4,8 @@ let stored_products = JSON.parse(localStorage.getItem('products'));
 console.log(stored_products);
 const loadForEdit = () => {
     let html_format = stored_products.map(item => {
-      let color = `${item.previousPrice > item.productPrice ? "#B9FAA8;" : "white;"}`
+      //question five. check if the previousPrice> productPrice then 
+      let color = `${item.previousPrice > item.productPrice ? "#B9FAA8;" : "white;"}` 
      
         return `<tr style="background : ${color}">
         <th scope="row">${item.id}</th>

@@ -21,7 +21,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="manage.html">Manage</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
@@ -104,7 +104,8 @@
                 document.getElementById("previous_price").value = product.previousPrice ? 
                 product.previousPrice : product.productPrice;
                 document.getElementById("rating").value = product.rating ? product.rating : "Not Rated Yet";
-                document.getElementById("productName").innerHTML =  product.productTitle;
+                // question 6 get the productTitle and set it into the span with id productName
+                document.getElementById("productName").innerHTML =  product.productTitle; 
             }
             console.log(product);
             }
@@ -119,8 +120,7 @@ function welcomeLoggedUser() {
     let logged_member = JSON.parse(localStorage.getItem('logged_member'));
     if (logged_member) {
         document.getElementById('logged_member').innerHTML = `Welcome ${logged_member.name} `;
-    }
-
+    }}
         </script>
     </body>
 </html>
