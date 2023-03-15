@@ -64,13 +64,13 @@ let cart = JSON.parse(localStorage.getItem("cart"))? JSON.parse(localStorage.get
 
 //products database.
 let products = [
-    new Product(1, "Car", 25000, "/assets/products/car.jpg",6),
-    new Product(2, "Stroller", 250, "/assets/products/stroller.jpg",2),
+    new Product(1, "Car", 25000, "/assets/products/car.jpg",4),
+    new Product(2, "Stroller", 250, "/assets/products/stroller.jpg",4),
     new Product(3, "Table Cover", 2.90, "/assets/products/table_cover.jpg",4),
-    new Product(4, "Set of Lamps", 11.95, "/assets/products/set_of_lamps.jpg",1),
-    new Product(5, "Umbrella", 8.95,"/assets/products/umbrella__58450.jpeg",0),
+    new Product(4, "Set of Lamps", 11.95, "/assets/products/set_of_lamps.jpg",3),
+    new Product(5, "Umbrella", 8.95,"/assets/products/umbrella__58450.jpeg",3),
     peanut,
-    new Product(7, "Deodorant", 6.99, "/assets/products/Deodorant.jpeg",0),
+    new Product(7, "Deodorant", 6.99, "/assets/products/Deodorant.jpeg",3),
     new Product(8, "Mechanical Drill", 122.75,"/assets/products/Mechanical.jpeg",3),
 ];
 

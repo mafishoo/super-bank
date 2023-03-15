@@ -43,7 +43,7 @@ checkout.addEventListener("click" , function(){
     
     if (loggedMember && parseInt(loggedMember.deposit) >= totalPrice){
 
-        alert("you have sufficient money")
+       alert(`you have sufficient money. the total price = ${totalPrice}`)
       loggedMember = {
         name: loggedMember.name, 
         email: loggedMember.email,
@@ -60,6 +60,9 @@ checkout.addEventListener("click" , function(){
       localStorage.removeItem("total") // we do this to make total price zero after checkout
      // document.getElementById("myTable").deleteRow(0).closest();
 
+    }
+    else {
+        alert(`you don't have sufficient money. the total price = ${totalPrice} but the deposit you is ${loggedMember.deposit}`)
     }
    
 })
